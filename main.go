@@ -35,6 +35,10 @@ func main() {
         renderTemplate(w, "contact")
     })
 
+    http.HandleFunc("/blog", func(w http.ResponseWriter, r *http.Request) {
+        renderTemplate(w, "blog")
+    })
+
     log.Println("Server running at http://localhost:8080")
     log.Fatal(http.ListenAndServe(":8080", nil))
 }

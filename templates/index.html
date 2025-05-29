@@ -4,31 +4,72 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Joel Bello - Software Developer</title>
-  <link rel="stylesheet" href="/static/style.css" />
   <script src="https://unpkg.com/htmx.org@1.9.4"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <div class="profile-header">
-      <img src="/static/images/profile.jpg" alt="Joel Bello" class="profile-image" />
-      <div class="profile-info">
-        <h1>Hi, I'm Joel Bello 👋</h1>
-        <p class="title">Software Developer </p>
+<body class="bg-gray-50">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <header class="mb-12">
+      <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+        <img src="/static/images/profile.jpg" alt="Joel Bello" 
+             class="w-48 h-48 rounded-full object-cover border-4 border-gray-200 shadow-lg" />
+        <div class="flex-1 text-center md:text-left">
+          <h1 class="text-4xl font-bold text-gray-800 mb-2">Hi, I'm Joel Bello 👋</h1>
+          <p class="text-xl text-gray-600 mb-4">Software Developer</p>
+          <p class="text-gray-600 mb-6">Building scalable web applications with modern technologies 💡</p>
+        </div>
       </div>
-    </div>
-    <nav>
-      <button hx-get="/about" hx-target="#content">About me</button>
-      <button hx-get="/projects" hx-target="#content">Projects</button>
-      <button hx-get="/contact" hx-target="#content">Contact</button>
-    </nav>
-  </header>
 
-  <main id="content">
-    <p>Building scalable web applications with modern technologies 💡</p>
-  </main>
+      <nav class="mt-8 flex justify-center space-x-4">
+        <button hx-get="/about" hx-target="#content"
+                class="px-6 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors">
+          About me
+        </button>
+        <button hx-get="/projects" hx-target="#content"
+                class="px-6 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors">
+          Projects
+        </button>
+        <button hx-get="/contact" hx-target="#content"
+                class="px-6 py-2 bg-gray-700 text-white rounded-md hover:bg-gray-800 transition-colors">
+          Contact
+        </button>
+      </nav>
+    </header>
 
-  <footer>
-    <p>&copy; 2025 Joel Bello</p>
-  </footer>
+    <main id="content" class="min-h-[300px]">
+      <div class="text-center text-gray-600">
+        <p>Click the buttons above to explore my work and experience!</p>
+      </div>
+    </main>
+
+    <footer class="mt-12 pt-8 border-t border-gray-200">
+      <div class="flex flex-col items-center space-y-4">
+        <div class="flex space-x-6">
+          <a href="https://github.com/joelnbl" target="_blank" rel="noopener" 
+             class="text-gray-900 hover:text-gray-600 transition-colors">
+            <i class="fab fa-github text-2xl"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/joelnbl" target="_blank" rel="noopener"
+             class="text-gray-900 hover:text-gray-600 transition-colors">
+            <i class="fab fa-linkedin text-2xl"></i>
+          </a>
+          <a href="https://twitter.com/joelnbl" target="_blank" rel="noopener"
+             class="text-gray-900 hover:text-gray-600 transition-colors">
+            <i class="fab fa-twitter text-2xl"></i>
+          </a>
+          <a href="mailto:joelumc@gmail.com"
+             class="text-gray-900 hover:text-gray-600 transition-colors">
+            <i class="fas fa-envelope text-2xl"></i>
+          </a>
+          <a href="https://joelnbl.vercel.app" target="_blank" rel="noopener"
+             class="text-gray-900 hover:text-gray-600 transition-colors">
+            <i class="fas fa-globe text-2xl"></i>
+          </a>
+        </div>
+        <p class="text-gray-600 text-sm">&copy; 2025 Joel Bello</p>
+      </div>
+    </footer>
+  </div>
 </body>
 </html>
