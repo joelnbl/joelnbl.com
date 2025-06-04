@@ -47,7 +47,7 @@
             <h1 class="text-3xl md:text-4xl font-bold text-light mb-2">
               Joel Bello.
             </h1>
-            <h2 class="text-2xl md:text-3xl font-bold text-secondary mb-2">
+            <h2 class="apple-subheading mb-2">
               I build things for the web.
             </h2>
             <p class="text-secondary mb-4 md:mb-6 max-w-lg">Senior Software Developer specializing in React, Next.js, and AWS cloud solutions. Currently focused on building scalable, user-centered applications.</p>
@@ -65,8 +65,8 @@
               <a href="/static/files/JoelBello_CV.pdf" download class="cv-button">
                 <i class="fas fa-file-download"></i> Download CV
               </a>
-              <a href="mailto:joelumc@gmail.com" class="text-secondary hover:text-light">
-                <i class="fas fa-envelope mr-1"></i> joelumc@gmail.com
+              <a href="mailto:joelumc@gmail.com" class="apple-button apple-button-secondary">
+                <i class="fas fa-envelope mr-1"></i> Contact Me
               </a>
             </div>
           </div>
@@ -79,19 +79,19 @@
       </div>
 
       <nav class="mt-8 md:mt-10 flex justify-center space-x-6 desktop-nav">
-        <button hx-get="/about" hx-target="#content" class="nav-link text-light hover:text-light">
+        <button hx-get="/about" hx-target="#content" class="nav-link">
           About
         </button>
-        <button hx-get="/projects" hx-target="#content" class="nav-link text-light hover:text-light">
+        <button hx-get="/projects" hx-target="#content" class="nav-link">
           Projects
         </button>
-        <button hx-get="/experience" hx-target="#content" class="nav-link text-light hover:text-light">
+        <button hx-get="/experience" hx-target="#content" class="nav-link">
           Experience
         </button>
-        <button hx-get="/leadership" hx-target="#content" class="nav-link text-light hover:text-light">
+        <button hx-get="/leadership" hx-target="#content" class="nav-link">
           Leadership
         </button>
-        <button hx-get="/contact" hx-target="#content" class="nav-link text-light hover:text-light">
+        <button hx-get="/contact" hx-target="#content" class="nav-link">
           Contact
         </button>
       </nav>
@@ -99,7 +99,7 @@
 
     <main id="content" class="min-h-[300px] fade-in mobile-content">
       <section class="mb-12">
-        <h2 class="apple-heading">About Me</h2>
+        <h2 class="section-title">About Me</h2>
         <div class="text-secondary space-y-4">
           <p>Senior Software Developer with 5+ years of experience building scalable web applications and cloud solutions. Specialized in React, Next.js, and AWS cloud services with a strong focus on performance optimization and user experience.</p>
           <p>Passionate about creating efficient, maintainable code and implementing best practices in software development. Proven track record of delivering high-quality solutions that drive business growth.</p>
@@ -107,7 +107,7 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="apple-heading">Key Skills</h2>
+        <h2 class="section-title">Key Skills</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
           <div>
@@ -177,9 +177,9 @@
       </section>
 
       <section class="mb-12">
-        <h2 class="apple-heading">Featured Projects</h2>
+        <h2 class="section-title">Featured Projects</h2>
         
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+        <div class="apple-grid mt-6">
           <div class="card project-card p-5">
             <div class="project-card-body">
               <h3 class="text-light font-medium text-lg mb-2">ML Model Deployment Platform</h3>
@@ -222,14 +222,14 @@
         </div>
         
         <div class="text-center mt-6">
-          <button hx-get="/projects" hx-target="#content" class="text-secondary hover:text-light">
+          <button hx-get="/projects" hx-target="#content" class="apple-button apple-button-secondary">
             View All Projects <i class="fas fa-arrow-right ml-1"></i>
           </button>
         </div>
       </section>
 
       <section>
-        <h2 class="apple-heading">Work Experience</h2>
+        <h2 class="section-title">Work Experience</h2>
         
         <div class="timeline mt-6">
           <div class="timeline-item">
@@ -259,7 +259,7 @@
         </div>
         
         <div class="text-center mt-6">
-          <button hx-get="/experience" hx-target="#content" class="text-secondary hover:text-light">
+          <button hx-get="/experience" hx-target="#content" class="apple-button apple-button-secondary">
             View Full Experience <i class="fas fa-arrow-right ml-1"></i>
           </button>
         </div>
