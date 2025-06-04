@@ -4,41 +4,79 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 )
 
-func renderTemplate(w http.ResponseWriter, tmpl string) {
-    t, err := template.ParseFiles("templates/" + tmpl + ".html")
-    if err != nil {
-        http.Error(w, err.Error(), http.StatusInternalServerError)
-        return
-    }
-    t.Execute(w, nil)
+func main() {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	// Serve static files
+	fs := http.FileServer(http.Dir("static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	// Home page
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		if r.URL.Path != "/" {
+			http.NotFound(w, r)
+			return
+		}
+		renderTemplate(w, "index.html")
+	})
+
+	// About page
+	http.HandleFunc("/about", func(w http.ResponseWriter, r *http.Request) {
+		renderPartial(w, "about.html")
+	})
+
+	// Projects page
+	http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
+		renderPartial(w, "projects.html")
+	})
+
+	// Experience page
+	http.HandleFunc("/experience", func(w http.ResponseWriter, r *http.Request) {
+		renderPartial(w, "experience.html")
+	})
+
+	// Leadership page
+	http.HandleFunc("/leadership", func(w http.ResponseWriter, r *http.Request) {
+		renderPartial(w, "leadership.html")
+	})
+
+	// Contact page
+	http.HandleFunc("/contact", func(w http.ResponseWriter, r *http.Request) {
+		renderPartial(w, "contact.html")
+	})
+
+	log.Printf("Server starting on port %s", port)
+	if err := http.ListenAndServe(":"+port, nil); err != nil {
+		log.Fatal(err)
+	}
 }
 
-func main() {
-    fs := http.FileServer(http.Dir("static"))
-    http.Handle("/static/", http.StripPrefix("/static/", fs))
+func renderTemplate(w http.ResponseWriter, tmpl string) {
+	t, err := template.ParseFiles("templates/" + tmpl)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	err = t.Execute(w, nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+}
 
-    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        renderTemplate(w, "index")
-    })
-
-    http.HandleFunc("/about", func(w http.ResponseWriter, r *http.Request) {
-        renderTemplate(w, "about")
-    })
-
-    http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
-        renderTemplate(w, "projects")
-    })
-
-    http.HandleFunc("/contact", func(w http.ResponseWriter, r *http.Request) {
-        renderTemplate(w, "contact")
-    })
-
-    http.HandleFunc("/blog", func(w http.ResponseWriter, r *http.Request) {
-        renderTemplate(w, "blog")
-    })
-
-    log.Println("Server running at http://localhost:8080")
-    log.Fatal(http.ListenAndServe(":8080", nil))
+func renderPartial(w http.ResponseWriter, tmpl string) {
+	t, err := template.ParseFiles("templates/" + tmpl)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+	err = t.Execute(w, nil)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
 }
