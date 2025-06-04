@@ -8,11 +8,22 @@
   --hover-color: #1f2937;
 }
 
+:root.light {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --accent-color: #0d6efd;
+  --secondary-color: #6c757d;
+  --border-color: #dee2e6;
+  --card-bg: #ffffff;
+  --hover-color: #e9ecef;
+}
+
 body {
   font-family: 'JetBrains Mono', monospace;
   background-color: var(--bg-color);
   color: var(--text-color);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -29,7 +40,7 @@ a:hover {
   background-color: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.3s ease;
 }
 
 .card:hover {
@@ -99,4 +110,39 @@ a:hover {
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
+}
+
+.theme-switch {
+  position: relative;
+  width: 60px;
+  height: 30px;
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.theme-switch i {
+  font-size: 14px;
+  color: var(--secondary-color);
+}
+
+.theme-switch::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  top: 3px;
+  left: 4px;
+  transition: transform 0.3s ease;
+}
+
+.light .theme-switch::after {
+  transform: translateX(30px);
 }
