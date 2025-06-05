@@ -581,3 +581,17 @@ a:hover {
     font-size: 32px;
   }
 }
+@media (min-width: 769px) {
+  .mobile-nav {
+    display: none !important;
+  }
+  
+  .mobile-header {
+    position: relative;
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom: none;
+    padding: 0;
+  }
+}
